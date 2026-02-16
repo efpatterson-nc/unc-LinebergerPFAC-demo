@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Join Us | UNC Lineberger PFAC</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    form{max-width:760px;margin:0 auto}
+    label{display:block;font-weight:700;margin-top:14px}
+    input, textarea, select{width:100%;padding:10px;border:1px solid #d8d8d8;border-radius:8px;font:inherit}
+    small{color:var(--muted)}
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header__top">
+        <div class="brand" aria-label="UNC Lineberger Comprehensive Cancer Center">
+          <div class="brand__mark" aria-hidden="true"></div>
+          <div class="brand__text">
+            <div>UNC</div>
+            <div class="brand__sub">Lineberger Comprehensive Cancer Center</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="nav">
+      <div class="container">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About PFAC</a></li>
+          <li><a href="impact.html">Our Impact</a></li>
+          <li><a href="join.html">Join Us</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="subhero">
+      <div class="container">
+        <h1>Join the PFAC</h1>
+        <p style="margin:8px 0 0 0; color:var(--muted)">
+          This is a local, presentation-ready demo form. Replace this with your secure Qualtrics/REDCap link when ready.
+        </p>
+      </div>
+    </div>
+
+    <section class="subcontent">
+      <div class="container">
+        <h2>Interest Form</h2>
+        <form>
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" />
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="name@example.com" />
+
+          <label for="role">I am a:</label>
+          <select id="role" name="role">
+            <option>Patient</option>
+            <option>Caregiver / Family member</option>
+            <option>Former patient/caregiver</option>
+            <option>Other</option>
+          </select>
+
+          <label for="message">Why are you interested in the PFAC?</label>
+          <textarea id="message" name="message" rows="5" placeholder="A few sentences..."></textarea>
+
+          <p style="margin-top:14px"><small>For presentation use only — this form does not submit anywhere.</small></p>
+
+          <div style="margin-top:18px">
+            <a class="btn" href="contact.html">Submit (Demo)</a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <strong>N.C. Basnight Cancer Hospital</strong><br/>
+          101 Manning Drive<br/>
+          Chapel Hill, NC 27514<br/>
+          <a href="index.html">UNC Lineberger</a>
+        </div>
+        <div class="footer__right">
+          <div>
+            <a href="privacy.html">Privacy Statement</a>&nbsp;&nbsp;
+            <a href="accessibility.html">Accessibility</a>
+          </div>
+          <div style="margin-top:10px">&copy; 2026 UNC Lineberger</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/nav.js"></script>
+  <script src="assets/js/nav-toggle.js"></script>
+</body>
+</html>
