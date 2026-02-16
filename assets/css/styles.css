@@ -291,3 +291,132 @@ a{color:inherit;text-decoration:none}
   box-shadow:0 8px 20px rgba(0,0,0,0.25);
 }
 .hero__btn:hover{ background:#4B9CD3; }
+
+
+/* ---------- Responsive enhancements (v8) ---------- */
+img { max-width: 100%; height: auto; }
+
+.container{
+  width: min(1100px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+/* Navigation toggle */
+nav.nav{ position: relative; }
+.nav__toggle{
+  display:none;
+  background:transparent;
+  border:0;
+  padding:10px 12px;
+  font-weight:700;
+  color: var(--brand-navy);
+  cursor:pointer;
+}
+.nav__toggle:focus{ outline:2px solid var(--carolina-blue); outline-offset:2px; }
+
+/* Wrap layouts gracefully */
+.impact-grid, .steps-grid, .footer-content{ flex-wrap: wrap; }
+
+.test-img img, #pfac-photo{
+  max-width: 180px;
+  width: 100%;
+  height: auto;
+}
+
+/* Tablet */
+@media (max-width: 900px){
+  nav ul{ gap: 16px; flex-wrap: wrap; }
+  .impact-grid{ justify-content: center; }
+}
+
+/* Mobile */
+@media (max-width: 768px){
+  .nav__toggle{ display:inline-flex; align-items:center; gap:8px; }
+  nav ul{
+    display:none !important;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 12px 0 0 0;
+    margin: 0;
+  }
+  nav.is-open ul{ display:flex !important; }
+  nav ul li a{
+    display:block;
+    padding: 10px 8px;
+    border-radius: 6px;
+    background: rgba(234,246,251,0.75);
+  }
+
+  /* Hero */
+  .hero{ min-height: 320px; height:auto; }
+  .hero__btn, .btn{ width: 100%; max-width: 360px; }
+
+  /* Stack */
+  .impact-grid, .steps-grid, .test-container, .footer-content{
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .test-img{ justify-content:center !important; }
+  .footer-content > div{ width:100%; }
+}
+
+@media (max-width: 420px){
+  .hero__content h1{ font-size: 30px; }
+  .hero__content p{ font-size: 18px; }
+}
+
+/* slide-down animation */
+nav ul{
+  transition: all 0.3s ease;
+}
+nav.is-open ul{
+  animation: slideDown 0.3s ease forwards;
+}
+@keyframes slideDown{
+  from{ opacity:0; transform:translateY(-10px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+
+
+/* ---------- UNC-like header spacing & typography (v3) ---------- */
+header{
+  padding-top: 12px;
+}
+.top-logo{
+  padding-bottom: 12px;
+  border-bottom-width: 4px; /* slightly heavier bar like UNC */
+}
+.top-logo img{
+  max-width: 360px;
+}
+nav{
+  padding: 12px 0 14px 0;
+}
+nav ul{
+  gap: 28px;
+}
+nav a{
+  font-size: 0.95rem;
+  letter-spacing: 0.2px;
+}
+
+/* Use Libre Baskerville for headings when present */
+h1,h2,h3{
+  font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+}
+body{
+  font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* ---------- Rotator fade ---------- */
+.pfac-fade{
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+.testimonial, .pfac-testimonial, .test-container{
+  transition: opacity 250ms ease;
+}
+
+.testimonial, .pfac-testimonial, .test-container{ opacity: 1; }

@@ -1,11 +1,12 @@
-(function () {
+(function(){
+  // Edit this list to add/remove members.
   const members = [
     {
       quote: "Serving on the PFAC helps me turn my experience into improvements that make care clearer and kinder for others.",
-      name: "Jane D.",
-      since: "2023",
-      photo: "assets/img/members/jane.png",
-      alt: "PFAC member Jane D."
+      name: "Ernie P.",
+      since: "2019",
+      photo: "assets/img/members/ErniePatterson.jpg",
+      alt: "PFAC member Ernie P."
     },
     {
       quote: "I joined the PFAC to make sure patient and caregiver perspectives are part of the decisions that shape care.",
@@ -23,24 +24,46 @@
     }
   ];
 
-  function pickRandom(arr) {
-    return arr[Math.floor(Math.random() * arr.length)];
+  const ROTATE_MS = 15000;
+  let currentIndex = -1;
+
+  function nextIndex() {
+    if (members.length === 1) return 0;
+    let i;
+    do {
+      i = Math.floor(Math.random() * members.length);
+    } while (i === currentIndex);
+    return i;
   }
 
-  function applyMember(m) {
+  function apply(member){
     const quoteEl = document.getElementById("pfac-quote");
     const citeEl  = document.getElementById("pfac-cite");
     const imgEl   = document.getElementById("pfac-photo");
+    const wrap    = document.querySelector(".testimonial");
 
-    if (quoteEl) quoteEl.textContent = "“" + m.quote + "”";
-    if (citeEl)  citeEl.innerHTML = "<strong>" + m.name + "</strong>, PFAC Member since " + m.since;
-    if (imgEl) {
-      imgEl.src = m.photo;
-      imgEl.alt = m.alt || ("PFAC member " + m.name);
-    }
+    if (!quoteEl || !citeEl || !imgEl || !wrap) return;
+
+    wrap.classList.add("pfac-fade");
+
+    setTimeout(() => {
+      quoteEl.textContent = `“${member.quote}”`;
+      citeEl.textContent  = `${member.name}, PFAC Member since ${member.since}`;
+      imgEl.src = member.photo;
+      imgEl.alt = member.alt || `PFAC member ${member.name}`;
+      wrap.classList.remove("pfac-fade");
+    }, 250);
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
-    applyMember(pickRandom(members));
-  });
+  function start(){
+    currentIndex = nextIndex();
+    apply(members[currentIndex]);
+
+    setInterval(() => {
+      currentIndex = nextIndex();
+      apply(members[currentIndex]);
+    }, ROTATE_MS);
+  }
+
+  document.addEventListener("DOMContentLoaded", start);
 })();
